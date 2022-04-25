@@ -127,6 +127,7 @@ str(dataf)
 ```
 
 ```{r chapter3-3}
+library(tidyverse)
 flower <- read_csv("flower.csv")
 dim(flower)
 str(flower)
@@ -165,8 +166,8 @@ flower %>% mutate(height_cm = height/100)
 #y = x1 + x2
 #weight - height + leafarea
 
-ans <- lm(weight - height + leafarea, data = flower)
-summary(ans)
+#ans <- lm(weight, data = flower)
+#summary(ans)
 ```
 
 ```{r chapter7}

@@ -1,0 +1,98 @@
+---
+title: "DataAnalysis_Test"
+author: "S.Oda"
+date: "2022/5/24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library&package, include=FALSE}
+library(maptools)
+library(rgdal)
+library(ggplot2)
+library(sf)
+library(dplyr)
+library(tmap)
+```
+
+```{r Data_Input, include=FALSE}
+shp <- read_sf("JPN_adm1.shp")
+data <- read.csv("Industry3.csv")
+
+JAP <- left_join(shp, data, by = c("NAME_1" = "Pre_name"))
+JAP
+
+```
+
+```{r Map_Grocery, include=FALSE}
+map1 = tm_shape(JAP) + tm_polygons(col = "食料品製造額")
+map1
+```
+
+```{r Map, include=FALSE}
+map2 = tm_shape(JAP) + tm_polygons(col = "繊維工業製造額")
+map2
+```
+
+```{r Map, include=FALSE}
+map3 = tm_shape(JAP) + tm_polygons(col = "木材・木製品製造額")
+map3
+```
+
+```{r Map, include=FALSE}
+map4 = tm_shape(JAP) + tm_polygons(col = "")
+map4
+```
+
+```{r Map, include=FALSE}
+map5 = tm_shape(JAP) + tm_polygons(col = "")
+map5
+```
+
+```{r Map, include=FALSE}
+map6 = tm_shape(JAP) + tm_polygons(col = "")
+map6
+```
+
+```{r Map, include=FALSE}
+map7 = tm_shape(JAP) + tm_polygons(col = "")
+map7
+```
+
+```{r Map, include=FALSE}
+map8 = tm_shape(JAP) + tm_polygons(col = "")
+map8
+```
+
+```{r Map, include=FALSE}
+map9 = tm_shape(JAP) + tm_polygons(col = "")
+map9
+```
+
+```{r Map, include=FALSE}
+map10 = tm_shape(JAP) + tm_polygons(col = "")
+map10
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
